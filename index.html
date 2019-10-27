@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/konva@4.0.16/konva.min.js"></script>
+    <meta charset="utf-8" />
+    <title>Konva Drag and Drop Demo</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+	   let width = window.innerWidth;
+    let height = window.innerHeight;
+    this.stage = new Konva.Stage({
+      container: 'container',
+      width: width,
+      height: height
+    });
+    this.layer = new Konva.Layer();
+
+   const baseRing = new Konva.Ring({
+      x: this.stage.width() / 2,
+      y: this.stage.height() / 2,
+      innerRadius: 30,
+      outerRadius: 150,
+      stroke: "black",
+      fill: "red",
+    });
+    this.layer.add(baseRing);
+
+    var shapeStar = new Konva.Star({
+      x: this.stage.width() / 2,
+      y: this.stage.height() / 2,
+      numPoints: 15,
+      innerRadius: 100,
+      outerRadius: 140,
+      fill: "#8A2BE2",
+    });
+    this.layer.add(shapeStar);
+
+    const circle = new Konva.Circle({
+      x: this.stage.width() / 2,
+      y: this.stage.height() / 2,
+      radius: 100,
+      fill: '#32CD32',
+      // stroke: 'black',
+      // strokeWidth: 4
+    });
+    this.layer.add(circle);
+
+    const arc = new Konva.Arc({
+      x: this.stage.width() / 2,
+      y: this.stage.height() / 2 - 10,
+      innerRadius: 0,
+      outerRadius: 70,
+      angle: 180,
+      fill: '#cc0000',
+    });
+    this.layer.add(arc);
+
+    const mainOval = new Konva.Ellipse({
+      x: this.stage.width() / 2,
+      y: this.stage.height() / 2 - 8,
+      radiusX: 70,
+      radiusY: 15,
+      fill: '#4169E1',
+      // stroke: 'white',
+
+    });
+    this.layer.add(mainOval);
+
+    const oval = new Konva.Ellipse({
+      x: this.stage.width() / 2,
+      y: this.stage.height() / 2 - 14,
+      radiusX: 5,
+      radiusY: 30,
+      fill: 'yellow',
+
+    });
+
+    this.layer.add(oval);
+
+    this.createSmallCircle(0, this.stage.height() / 6 - 10);
+    this.createSmallCircle(45, this.stage.height() / 6 - 18);
+    this.createSmallCircle(-45, this.stage.height() / 6 - 18);
+    this.createSmallCircle(-84, this.stage.height() / 6 - 44);
+    this.createSmallCircle(84, this.stage.height() / 6 - 44);
+    this.createSmallCircle(104, this.stage.height() / 8 - 56);
+    this.createSmallCircle(-104, this.stage.height() / 8 - 56);
+    this.createSmallCircle(110, this.stage.height() / 10 - 84);
+    this.createSmallCircle(- 110, this.stage.height() / 10 - 84);
+    this.createSmallCircle(96, - this.stage.height() / 8 + 35);
+    this.createSmallCircle(-96, - this.stage.height() / 8 + 35);
+    this.createSmallCircle(64, - this.stage.height() / 6 + 32);
+    this.createSmallCircle(-64, - this.stage.height() / 6 + 32);
+    this.createSmallCircle(-24, - this.stage.height() / 4 + 72);
+    this.createSmallCircle(24, - this.stage.height() / 4 + 72);
+
+    this.stage.add(this.layer);
+    this.startAnimation(shapeStar);
+
+  function createSmallCircle(offsetX, offsetY) {
+    const circle = new Konva.Circle({
+      x: this.stage.width() / 2,
+      y: this.stage.height() / 2,
+      radius: 5,
+      fill: 'yellow',
+      offset: {
+        x: offsetX,
+        y: offsetY
+      }
+    });
+    this.startAnimation(circle);
+    this.layer.add(circle);
+  }
+  
+  function startAnimation(shape) {
+    var angularSpeed = 60;
+    var anim = new Konva.Animation(function (frame) {
+      var angleDiff = (frame.timeDiff * angularSpeed) / 2000;
+      shape.rotate(angleDiff);
+    }, this.layer);
+
+    anim.start();
+  }
+
+    </script>
+  </body>
+</html>
