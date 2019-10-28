@@ -87,25 +87,24 @@
     });
 
     this.layer.add(oval);
-
-    this.createSmallCircle(0, this.stage.height() / 6 - 10);
-    this.createSmallCircle(45, this.stage.height() / 6 - 18);
-    this.createSmallCircle(-45, this.stage.height() / 6 - 18);
-    this.createSmallCircle(-84, this.stage.height() / 6 - 44);
-    this.createSmallCircle(84, this.stage.height() / 6 - 44);
-    this.createSmallCircle(104, this.stage.height() / 8 - 56);
-    this.createSmallCircle(-104, this.stage.height() / 8 - 56);
-    this.createSmallCircle(110, this.stage.height() / 10 - 84);
-    this.createSmallCircle(- 110, this.stage.height() / 10 - 84);
-    this.createSmallCircle(96, - this.stage.height() / 8 + 35);
-    this.createSmallCircle(-96, - this.stage.height() / 8 + 35);
-    this.createSmallCircle(64, - this.stage.height() / 6 + 32);
-    this.createSmallCircle(-64, - this.stage.height() / 6 + 32);
-    this.createSmallCircle(-24, - this.stage.height() / 4 + 72);
-    this.createSmallCircle(24, - this.stage.height() / 4 + 72);
-
-    this.stage.add(this.layer);
-    this.startAnimation(shapeStar);
+	    
+	this.createSmallCircle(0, 110 );
+	this.createSmallCircle(45,  100);
+	this.createSmallCircle(-45, 100);
+	this.createSmallCircle(-82, 74);
+	this.createSmallCircle(82, 74);
+	this.createSmallCircle(104, 34);
+	this.createSmallCircle(-104, 34);
+	this.createSmallCircle(110, -12);
+	this.createSmallCircle(- 110, -12);
+	this.createSmallCircle(96, -55);
+	this.createSmallCircle(-96, -55);
+	this.createSmallCircle(64, -88);
+	this.createSmallCircle(-64, -88);
+	this.createSmallCircle(-24, -108);
+	this.createSmallCircle(24, - 108); 
+	this.stage.add(this.layer);
+	this.startAnimation(shapeStar);
 
   function createSmallCircle(offsetX, offsetY) {
     const circle = new Konva.Circle({
